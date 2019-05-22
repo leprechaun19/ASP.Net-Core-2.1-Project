@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@inject UserManager<ApplicationUser> UserManager
+@inject Airport.Data.ApplicationDbContext Context
+@{
+    ViewData["Title"] = "Index";
+    ApplicationUser appUser = await UserManager.GetUserAsync(User);
+    //Guid cust = Guid.Empty;
+    //if (appUser.IsUser)
+    //{
+    //    Contact contact = Context.Contact.Where(x => x.applicationUserId.Equals(appUser.Id)).FirstOrDefault();
+    //    Customer customer = (contact != null) ? Context.Customer.Where(x => x.customerId.Equals(contact.customerId)).FirstOrDefault() : null;
+    //    cust = (customer != null) ? customer.customerId : Guid.Empty;
+    //}
+}
+<div class="content">
+    <div class="row">
+
+    </div>
+</div>
+
+
+
+

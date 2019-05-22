@@ -1,0 +1,66 @@
+﻿@model Airport.Models.FlightViewModels.AddEditFlightViewModel
+@{
+    Layout = null;
+}
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">Add or Edit Data</h4>
+</div>
+<form onsubmit="return SubmitAddEdit(this)">
+    <div class="box-body">
+        @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="@Model.Flight.FligthID" />
+        <div class="form-group">
+            <label asp-for="DepartureDate" class="control-label"></label>
+            <input asp-for="@Model.Flight.DepartureDate" asp-format="dd.MM.yyyy hh:mm" class="form-control" />
+            <span asp-validation-for="@Model.Flight.DepartureDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="DestinationDate" class="control-label"></label>
+            <input asp-for="@Model.Flight.DestinationDate" class="form-control" />
+            <span asp-validation-for="@Model.Flight.DestinationDate" class="text-danger"></span>
+        </div>*@
+        @*<div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label asp-for="Airpot From" class="control-label"></label>
+                   <select asp-for="@M.AirportID" asp-items="ViewBag.Airports"></select>
+                    <span asp-validation-for="phone" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label asp-for="email" class="control-label"></label>
+                    <input asp-for="email" class="form-control" />
+                    <span asp-validation-for="email" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Address" class="control-label"></label>
+            <input asp-for="Address" class="form-control" />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>*@
+    </div>
+
+    <div class="box-footer">
+        <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Submit</button>
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+    </div>
+</form>
+<script>
+    Ladda.bind('.btn', { timeout: 1000 });
+</script>
+
+
+

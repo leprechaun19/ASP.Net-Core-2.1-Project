@@ -1,0 +1,46 @@
+﻿@model Airport.Models.AirplaneViewModels.AddAirplaneViewModel
+@{
+    Layout = null;
+}
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">Add or Edit Data</h4>
+</div>
+<form onsubmit="return SubmitAddEdit(this)" id="form">
+    <div class="box-body">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input asp-for="@Model.AirplaneID" type="hidden" />
+        <div class="form-group">
+            <label asp-for="@Model.AirplaneType" class="control-label"></label>
+            <input asp-for="@Model.AirplaneType" class="form-control" />
+            <span asp-validation-for="@Model.AirplaneType" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.NumPlaces" class="control-label"></label>
+            <input asp-for="@Model.NumPlaces" class="form-control" id="numplaces" />
+            <span asp-validation-for="@Model.NumPlaces"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.AirlineID" class="control-label"></label>
+            <input asp-for="@Model.AirlineID" type="hidden" id="airlineid" />
+            <select asp-for="@Model.AirlineID" class="form-control select2 select2-hidden-accessible">
+                @foreach (var airline in ViewBag.Airlines)
+                {
+                    <option value="@airline.AirlineID">@airline.AirlineFullName</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="box-footer">
+        <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Submit</button>
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+    </div>
+</form>
+
+<script>
+    Ladda.bind('.btn', { timeout: 1000 });
+</script>

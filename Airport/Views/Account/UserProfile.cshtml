@@ -1,0 +1,97 @@
+﻿@model Airport.Models.ApplicationUser
+@inject Airport.Data.ApplicationDbContext Context
+@{
+    ViewData["Title"] = "User Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="box box-primary">
+                <div class="box-body box-profile">
+                    <img id="profilePicture" class="profile-user-img img-responsive img-circle" src="../@Model.ProfilePictureUrl" alt="User profile picture">
+                    <h3 class="profile-username text-center"><span class="profile-fullName">@Model.FullName</span></h3>
+                    <p class="text-muted text-center">Active Member</p>
+
+                    <ul class="list-group list-group-unbordered">
+                        <li class="list-group-item text-center">
+                            <span class="btn btn-success fileinput-button">
+                                <i class="fa fa-camera bg-green"></i>
+                                <span>Select file ...</span>
+                                <input id="fileupload" type="file" name="files" multiple="">
+                            </span>
+
+                        </li>
+                        <li class="list-group-item">
+                            <div id="progress" class="progress">
+                                <div class="progress-bar progress-bar-success"></div>
+                            </div>
+                        </li>
+
+                    </ul>
+                    @if (Model.IsUser)
+                    {
+                        //<a href="@Airport.MVC.Pages.TicketCustomer.FullUrl?cust=@customerId" class="btn btn-primary btn-block"><b><i class="fa fa-building"></i> Tickets</b></a>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+
+                    <li class="active"><a href="#editProfile" data-toggle="tab">Edit Profile</a></li>
+                    <li><a href="#changePassword" data-toggle="tab">Change Password</a></li>
+                </ul>
+                <div class="tab-content">
+
+                    <div class="active tab-pane" id="editProfile">
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                <h4>Change Your Personal Profile Data</h4>
+
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-person"></i>
+                            </div>
+
+                            <a onclick="ShowPopup('@Url.Action("PersonalProfile","Account")')" class="btn small-box-footer">Open Personal Profile Form <i class="fa fa-gear"></i></a>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="changePassword">
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                <h4>Change Old Password With The New Password</h4>
+
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-key"></i>
+                            </div>
+
+                            <a onclick="ShowPopup('@Url.Action("ChangePassword","Manage")')" class="btn small-box-footer">Open Change Password Form <i class="fa fa-gear"></i></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal modal-primary fade" id="modalDefault">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+    <script src="~/js/views/user/userprofile.js"></script>
+
+}
