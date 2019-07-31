@@ -65,10 +65,10 @@ namespace Airport.Controllers.Api
 
             try
             {
-
                 if (user.UserId == Guid.Empty)
                 {
                     user.UserId = Guid.NewGuid();
+                    user.CreateAt = DateTime.Today.Date.ToShortDateString(); 
                     _context.User.Add(user);
 
                     await _context.SaveChangesAsync();

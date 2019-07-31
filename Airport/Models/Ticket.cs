@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Airport.Models
 {
@@ -16,10 +14,14 @@ namespace Airport.Models
         [Key]
         public Guid TicketID { get; set; }
 
-	public Guid FlightID { get; set; }
+        [Required]
+        public Guid FlightFligthID { get; set; }
+        [ForeignKey("FlightFligthID")]
         public Flight Flight { get; set; }
 
+        [Required]
         public Guid UserId { get; set; }
+        [ForeignKey("UserId")]
         public User User { get; set; }
 
         [Required]
@@ -30,5 +32,6 @@ namespace Airport.Models
 
         [DataType(DataType.DateTime)]
         public DateTime OrderDate { get; set; }
+
     }
 }

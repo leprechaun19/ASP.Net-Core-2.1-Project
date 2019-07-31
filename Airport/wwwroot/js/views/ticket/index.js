@@ -1,19 +1,24 @@
-﻿var popup, dataTable;
+﻿ var popup, dataTable;
 var entity = 'Ticket';
 var apiurl = '/api/' + entity;
 
 $(document).ready(function () {
-    var organizationId = $('#organizationId').val();
     dataTable = $('#grid').DataTable({
         "ajax": {
-            "url": apiurl + '/' + organizationId,
+            "url": apiurl,
             "type": 'GET',
             "datatype": 'json'
         },
         "columns": [
-            { "data": "ticketName" },
+            { "data": "departureDate" },
+            { "data": "airportFrom" },
+            { "data": "airportTo" },
+            { "data": "user.userName" },
+            { "data": "seat" },
+            { "data": "price" },
+            { "data": "orderDate" },
             {
-                "data": "ticketId",
+                "data": "ticketID",
                 "render": function (data) {
                     var btnEdit = "<a class='btn btn-default btn-xs' onclick=ShowPopup('/" + entity + "/AddEdit/" + data + "')><i class='fa fa-pencil'></i></a>";
                     var btnDelete = "<a class='btn btn-danger btn-xs' style='margin-left:5px' onclick=Delete('" + data + "')><i class='fa fa-trash'></i></a>";

@@ -9,7 +9,6 @@ C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Airport.csprojAssem
 C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Airport.csproj.CoreCompileInputs.cache
 C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Airport.RazorAssemblyInfo.cache
 C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Airport.RazorAssemblyInfo.cs
-C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Airport.AssemblyInfoInputs.cache
 C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Airport.AssemblyInfo.cs
 C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Airport.TagHelpers.input.cache
@@ -42,7 +41,6 @@ C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Razor\Views\Shared\
 C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Razor\Views\User\Index.g.cshtml.cs
 C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Razor\Views\Airline\AddEdit.g.cshtml.cs
 C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Razor\Views\Airline\Index.g.cshtml.cs
-C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Razor\Views\Airplane\Add.g.cshtml.cs
 C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Razor\Views\Airplane\Index.g.cshtml.cs
 C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Razor\Views\Flight\AddEdit.g.cshtml.cs
 C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Razor\Views\Flight\Index.g.cshtml.cs
@@ -50,3 +48,11 @@ C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Razor\Views\User\Ad
 C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Razor\Views\Account\PersonalProfile.g.cshtml.cs
 C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Razor\Views\Account\UserProfile.g.cshtml.cs
 C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Razor\Views\Manage\ChangePassword.g.cshtml.cs
+C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Razor\Views\Airport\AddEdit.g.cshtml.cs
+C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Razor\Views\Airport\Index.g.cshtml.cs
+C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Razor\Views\TimeTable\AddEdit.g.cshtml.cs
+C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Razor\Views\TimeTable\Index.g.cshtml.cs
+C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Razor\Views\Airplane\AddEdit.g.cshtml.cs
+C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Razor\Views\Ticket\Index.g.cshtml.cs
+C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\Razor\Views\Ticket\AddEdit.g.cshtml.cs
+C:\Users\User\source\Airport\Airport\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs

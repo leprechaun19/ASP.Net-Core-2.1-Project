@@ -3,17 +3,22 @@ var entity = 'Flight';
 var apiurl = '/api/' + entity;
 
 $(document).ready(function () {
-    var organizationId = $('#organizationId').val();
     dataTable = $('#grid').DataTable({
         "ajax": {
-            "url": apiurl + '/' + organizationId,
+            "url": apiurl,
             "type": 'GET',
             "datatype": 'json'
         },
         "columns": [
-            { "data": "supportEngineerName" },
+            { "data": 'departureDate' },
+            { "data": 'destinationDate' },
+            { "data": 'airplaneType' },
+            { "data": 'airportFrom' },
+            { "data": 'airportTo' },
+            { "data": 'flightTime' },
+            { "data": 'priceFlight' },
             {
-                "data": "supportEngineerId",
+                "data": 'fligthID',
                 "render": function (data) {
                     var btnEdit = "<a class='btn btn-default btn-xs' onclick=ShowPopup('/"+entity+"/AddEdit/" + data + "')><i class='fa fa-pencil'></i></a>";
                     var btnDelete = "<a class='btn btn-danger btn-xs' style='margin-left:5px' onclick=Delete('" + data + "')><i class='fa fa-trash'></i></a>";

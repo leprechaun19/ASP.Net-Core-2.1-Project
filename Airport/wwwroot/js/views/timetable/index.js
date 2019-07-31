@@ -1,22 +1,29 @@
 ﻿var popup, dataTable;
-var entity = 'Product';
+var entity = 'TimeTable';
 var apiurl = '/api/' + entity;
 
 $(document).ready(function () {
-    var organizationId = $('#organizationId').val();
     dataTable = $('#grid').DataTable({
         "ajax": {
-            "url": apiurl + '/' + organizationId,
+            "url": apiurl,
             "type": 'GET',
             "datatype": 'json'
         },
         "columns": [
-            { "data": "productName" },
+            { "data": "flightTime" },
+            { "data": "mondayTimeTable" },
+            { "data": "tuesdayTimeTable" },
+            { "data": "wednesdayTimeTable" },
+            { "data": "thursdayTimeTable" },
+            { "data": "fridayTimeTable" },
+            { "data": "saturdayTimeTable" },
+            { "data": "sundayTimeTable" },
+
             {
-                "data": "productId",
+                "data": "timeTableID",
                 "render": function (data) {
                     var btnEdit = "<a class='btn btn-default btn-xs' onclick=ShowPopup('/" + entity + "/AddEdit/" + data + "')><i class='fa fa-pencil'></i></a>";
-                    var btnDelete = "<a class='btn btn-danger btn-xs' style='margin-left:2px' onclick=Delete('" + data + "')><i class='fa fa-trash'></i></a>";
+                    var btnDelete = "<a class='btn btn-danger btn-xs' style='margin-left:5px' onclick=Delete('" + data + "')><i class='fa fa-trash'></i></a>";
                     return btnEdit + btnDelete;
                 }
             }
@@ -30,11 +37,11 @@ $(document).ready(function () {
 
 function ShowPopup(url) {
     var modalId = 'modalDefault';
-    var modalPlaceholder = $('#'+modalId+' .modal-dialog .modal-content');
+    var modalPlaceholder = $('#' + modalId + ' .modal-dialog .modal-content');
     $.get(url)
         .done(function (response) {
             modalPlaceholder.html(response);
-            popup = $('#'+modalId+'').modal({
+            popup = $('#' + modalId + '').modal({
                 keyboard: false,
                 backdrop: 'static'
             });
@@ -70,7 +77,7 @@ function SubmitAddEdit(form) {
 function Delete(id) {
     swal({
         title: "Are you sure want to Delete?",
-        text: "You will not be able to restore the data!",
+        text: "You will not be able to restore the file!",
         type: "warning",
         showCancelButton: true,
         confirmButtonColor: "#dd4b39",
@@ -93,5 +100,3 @@ function Delete(id) {
 
 
 }
-
-

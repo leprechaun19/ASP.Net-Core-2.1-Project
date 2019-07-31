@@ -1,0 +1,53 @@
+﻿@model Airport.Models.Ticket
+@{
+    Layout = null;
+}
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">Add or Edit Data</h4>
+</div>
+<form onsubmit="return SubmitAddEdit(this)">
+    <div class="box-body">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="TicketID" />
+        <div class="form-group">
+            <label asp-for="FlightFligthID" class="control-label"></label>
+            <input asp-for="FlightFligthID" type="hidden" />
+            <select asp-for="FlightFligthID" class="form-control select2 select2-hidden-accessible">
+                @foreach (var flight in ViewBag.Flights)
+                {
+                    <option value="@flight.FligthID">
+                        @flight.AirportFrom.AirportName (@flight.AirportFrom.CountryName, @flight.AirportFrom.CityName) -
+                        @flight.AirportTo.AirportName (@flight.AirportTo.CountryName, @flight.AirportTo.CityName)
+                    </option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="UserId" class="control-label"></label>
+            <input asp-for="UserId" type="hidden" />
+            <select asp-for="UserId" class="form-control select2 select2-hidden-accessible">
+                @foreach (var user in ViewBag.Users)
+                {
+                    <option value="@user.UserId"> @user.UserName </option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Seat" class="control-label"></label>
+            <input asp-for="Seat" class="form-control" />
+            <span asp-validation-for="Seat" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="box-footer">
+        <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Submit</button>
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+    </div>
+</form>
+<script>
+    Ladda.bind('.btn', { timeout: 1000 });
+</script>

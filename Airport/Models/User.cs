@@ -32,7 +32,7 @@ namespace Airport.Models
         [StringLength(100)]
         public string Email { get; set; }
 
-        public DateTime CreateAt { get; set; }
+        public string CreateAt { get; set; }
 
         public string applicationUserId { get; set; }
         public ApplicationUser applicationUser { get; set; }

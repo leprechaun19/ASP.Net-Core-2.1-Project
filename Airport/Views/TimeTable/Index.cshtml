@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Airport.Models.TimeTable>
+@{
+    ViewData["Title"] = "TimeTables";
+    Layout = "_Layout";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-lg-10">
+            <div class="box box-primary">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table id="grid" name="grid" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Flight Time</th>
+                                        <th>Monday</th>
+                                        <th>Tuesday</th>
+                                        <th>Wednesday</th>
+                                        <th>Thursday</th>
+                                        <th>Friday</th>
+                                        <th>Saturday</th>
+                                        <th>Sunday</th>
+                                        <th width="40px"></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="row">
+                <div class="col-md-12">
+                    <a class="btn btn-success" style="margin-bottom:10px" onclick="ShowPopup('@Url.Action("AddEdit","TimeTable")')"><i class="fa fa-plus"></i> Add New TimeTable</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<div class="modal modal-primary fade" id="modalDefault">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+    <script src="~/js/views/timetable/index.js"></script>
+}
+
+

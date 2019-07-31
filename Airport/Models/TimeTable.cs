@@ -17,27 +17,27 @@ namespace Airport.Models
 
         [Required]
         [DataType(DataType.Time)]
-        public DateTime FlightTime { get; set; }
+        public string FlightTime { get; set; }
 
-        [RegularExpression(@"^\d{2}:\d{2}:\d{2}$")]
+        [DataType(DataType.Time)]
         public string MondayTimeTable { get; set; }
 
-        [RegularExpression(@"^\d{2}:\d{2}:\d{2}$")]
-        public string TuesdayTimeTable { get; set; }
+        [DataType(DataType.Time)]
+        public string TuesdayTimeTable { get; set; } 
 
-        [RegularExpression(@"^\d{2}:\d{2}:\d{2}$")]
+        [DataType(DataType.Time)]
         public string WednesdayTimeTable { get; set; }
 
-        [RegularExpression(@"^\d{2}:\d{2}:\d{2}$")]
+        [DataType(DataType.Time)]
         public string ThursdayTimeTable { get; set; }
 
-        [RegularExpression(@"^\d{2}:\d{2}:\d{2}$")]
+        [DataType(DataType.Time)]
         public string FridayTimeTable { get; set; }
 
-        [RegularExpression(@"^\d{2}:\d{2}:\d{2}$")]
+        [DataType(DataType.Time)]
         public string SaturdayTimeTable { get; set; }
 
-        [RegularExpression(@"^\d{2}:\d{2}:\d{2}$")]
+        [DataType(DataType.Time)]
         public string SundayTimeTable { get; set; }
     }
 }

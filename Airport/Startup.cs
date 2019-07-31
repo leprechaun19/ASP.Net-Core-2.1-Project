@@ -10,6 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Hosting.Builder;
 using Airport.Data;
 using Airport.Models;
+using Airport.Services;
+using System.ServiceModel;
+using SoapCore;
 
 namespace Airport
 {
@@ -30,6 +33,7 @@ namespace Airport
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
+           
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -68,7 +72,8 @@ namespace Airport
                 options.SlidingExpiration = true;
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                .AddXmlDataContractSerializerFormatters();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -88,7 +93,6 @@ namespace Airport
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseAuthentication();
-
 
             app.UseMvc(routes =>
             {

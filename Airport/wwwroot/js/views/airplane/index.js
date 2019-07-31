@@ -12,13 +12,13 @@ $(document).ready(function () {
         "columns": [
             { "data": 'airplaneType' },
             { "data": 'numPlaces' },
-            { "data": 'airline' },
+            { "data": 'airline.airlineFullName' },
             {
                 "data": 'airplaneID',
                 "render": function (data) {
 
-                    var btnEdit = "<a class='btn btn-default btn-xs' onclick=ShowPopup('/" + entity + "/Edit/" + data + "')><i class='fa fa-pencil'></i></a>";
-                    var btnDelete = "<a class='btn btn-danger btn-xs' style='margin-left:2px' onclick=Delete('" + data + "')><i class='fa fa-trash'></i></a>";
+                    var btnEdit = "<a class='btn btn-default btn-xs' onclick=ShowPopup('/" + entity + "/AddEdit/" + data + "')><i class='fa fa-pencil'></i></a>";
+                    var btnDelete = "<a class='btn btn-danger btn-xs' style='margin  -left:2px' onclick=Delete('" + data + "')><i class='fa fa-trash'></i></a>";
                     return btnEdit + btnDelete;
                 }
             }

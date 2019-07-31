@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Airport.Data;
 using Airport.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Airport.Controllers
 {
@@ -24,18 +22,19 @@ namespace Airport.Controllers
             return View(airplanes);
         }
 
-        public IActionResult Edit(Guid id)
+        public IActionResult Add(Guid id)
         {
-            return View(_DBcontext.Airlines.Where(x => x.AirlineID.Equals(id)).FirstOrDefault());
-        }
-
-        public IActionResult Add()
-        {
-            Models.AirplaneViewModels.AddAirplaneViewModel model = new Models.AirplaneViewModels.AddAirplaneViewModel();
-            ViewBag.Airlines = _DBcontext.Airlines.ToList();
-            model.AirplaneID = new Guid();
-            model.AirlineID = new Guid();
-            return View(model);
+            if(id != null)
+            {
+                ViewBag.Airlines = _DBcontext.Airlines.ToList();
+                return View(_DBcontext.Airlines.Where(x => x.AirlineID.Equals(id)).FirstOrDefault());
+            }
+            else
+            {
+                Airplane airplane = new Airplane();
+                ViewBag.Airlines = _DBcontext.Airlines.ToList();
+                return View(airplane);
+            }            
         }
     }
 }

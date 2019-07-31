@@ -14,7 +14,7 @@ $(document).ready(function () {
             { "data": 'address' },
             { "data": 'email' },
             { "data": 'phone' },
-            { "data": 'cteateAt' },
+            { "data": 'createAt' },
             {
                 "data": 'userId',
                 "render": function (data) {

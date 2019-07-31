@@ -1,4 +1,4 @@
-﻿@model Airport.Models.AirplaneViewModels.AddAirplaneViewModel
+﻿@model Airport.Models.Airplane
 @{
     Layout = null;
 }
@@ -12,21 +12,21 @@
 <form onsubmit="return SubmitAddEdit(this)" id="form">
     <div class="box-body">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input asp-for="@Model.AirplaneID" type="hidden" />
+        <input asp-for="AirplaneID" type="hidden" />
         <div class="form-group">
-            <label asp-for="@Model.AirplaneType" class="control-label"></label>
-            <input asp-for="@Model.AirplaneType" class="form-control" />
-            <span asp-validation-for="@Model.AirplaneType" class="text-danger"></span>
+            <label asp-for="AirplaneType" class="control-label"></label>
+            <input asp-for="AirplaneType" class="form-control" />
+            <span asp-validation-for="AirplaneType" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="@Model.NumPlaces" class="control-label"></label>
-            <input asp-for="@Model.NumPlaces" class="form-control" id="numplaces" />
-            <span asp-validation-for="@Model.NumPlaces"></span>
+            <label asp-for="NumPlaces" class="control-label"></label>
+            <input asp-for="NumPlaces" class="form-control" id="numplaces" />
+            <span asp-validation-for="NumPlaces"></span>
         </div>
         <div class="form-group">
-            <label asp-for="@Model.AirlineID" class="control-label"></label>
-            <input asp-for="@Model.AirlineID" type="hidden" id="airlineid" />
-            <select asp-for="@Model.AirlineID" class="form-control select2 select2-hidden-accessible">
+            <label asp-for="AirlineID" class="control-label"></label>
+            <input asp-for="AirlineID" type="hidden" id="airlineid" />
+            <select asp-for="AirlineID" class="form-control select2 select2-hidden-accessible">
                 @foreach (var airline in ViewBag.Airlines)
                 {
                     <option value="@airline.AirlineID">@airline.AirlineFullName</option>

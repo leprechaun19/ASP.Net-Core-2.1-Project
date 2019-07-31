@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Airport.Data;
 using Airport.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -34,7 +33,6 @@ namespace Airport.Controllers
             {
                 return View(_DBcontext.Airlines.Where(x => x.AirlineID.Equals(id)).FirstOrDefault());
             }
-
         }
     }
 }

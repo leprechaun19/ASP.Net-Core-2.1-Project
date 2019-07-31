@@ -152,12 +152,12 @@ WriteAttributeValue("", 699, appUser.ProfilePictureUrl, 699, 26, false);
             WriteLiteral("                </p>\r\n            </li>\r\n\r\n            <li class=\"user-footer\">\r\n                ");
             EndContext();
             BeginContext(1265, 488, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "742ebd7775fb433cb0e3317c1d34bf62", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bdbd5eff5616450d8dc7a609f71235b0", async() => {
                 BeginContext(1358, 71, true);
                 WriteLiteral("\r\n                    <div class=\"pull-left\">\r\n                        ");
                 EndContext();
                 BeginContext(1429, 100, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "89dcf5b5a0054ba3ada55d7cfe9ab425", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a2e41e29d1f84cc8b74350f971e7a692", async() => {
                     BeginContext(1515, 10, true);
                     WriteLiteral("My profile");
                     EndContext();

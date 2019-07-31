@@ -1,20 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Airport.Models
 {
+    [DataContract]
     public class Airline
     {
         public Airline()
         {
         }
 
+        [DataMember]
         [Key]
         public Guid AirlineID { get; set; }
 
+        [DataMember]
         [Required]
         [StringLength(50)]
         [Display(Name = "Airline Full Name")]

@@ -1,4 +1,4 @@
-﻿@model Airport.Models.FlightViewModels.AddEditFlightViewModel
+﻿@model Airport.Models.Flight
 @{
     Layout = null;
 }
@@ -11,46 +11,71 @@
 </div>
 <form onsubmit="return SubmitAddEdit(this)">
     <div class="box-body">
-        @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input type="hidden" asp-for="@Model.Flight.FligthID" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="FligthID" />
         <div class="form-group">
-            <label asp-for="DepartureDate" class="control-label"></label>
-            <input asp-for="@Model.Flight.DepartureDate" asp-format="dd.MM.yyyy hh:mm" class="form-control" />
-            <span asp-validation-for="@Model.Flight.DepartureDate" class="text-danger"></span>
+            <label asp-for="DepartureDate"   class="control-label"></label>
+            <input asp-for="DepartureDate"  class="form-control" />
+            <span asp-validation-for="DepartureDate"  class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="DestinationDate" class="control-label"></label>
-            <input asp-for="@Model.Flight.DestinationDate" class="form-control" />
-            <span asp-validation-for="@Model.Flight.DestinationDate" class="text-danger"></span>
-        </div>*@
-        @*<div class="row">
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <label asp-for="Airpot From" class="control-label"></label>
-                   <select asp-for="@M.AirportID" asp-items="ViewBag.Airports"></select>
-                    <span asp-validation-for="phone" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <label asp-for="email" class="control-label"></label>
-                    <input asp-for="email" class="form-control" />
-                    <span asp-validation-for="email" class="text-danger"></span>
-                </div>
-            </div>
+            <input asp-for="DestinationDate"  class="form-control" />
+            <span asp-validation-for="DestinationDate" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Address" class="control-label"></label>
-            <input asp-for="Address" class="form-control" />
-            <span asp-validation-for="Address" class="text-danger"></span>
+            <label asp-for="PriceFlight" class="control-label"></label>
+            <input asp-for="PriceFlight" class="form-control" />
+            <span asp-validation-for="PriceFlight" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-        </div>*@
+            <label asp-for="AirplaneID" class="control-label"></label>
+            <input asp-for="AirplaneID" type="hidden"  />
+            <select asp-for="AirplaneID" class="form-control select2 select2-hidden-accessible">
+                @foreach (var airplane in ViewBag.Airplanes)
+                {
+                    <option value="@airplane.AirplaneID">@airplane.AirplaneType</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="AirportFromAirportID" class="control-label"></label>
+            <input asp-for="AirportFromAirportID" type="hidden" />
+            <select asp-for="AirportFromAirportID" class="form-control select2 select2-hidden-accessible">
+                @foreach (var airport in ViewBag.Airports)
+                {
+                    <option value="@airport.AirportID">@airport.AirportName (@airport.CountryName, @airport.CityName)</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="AirportToAirportID" class="control-label"></label>
+            <input asp-for="AirportToAirportID" type="hidden" />
+            <select asp-for="AirportToAirportID" class="form-control select2 select2-hidden-accessible">
+                @foreach (var airport in ViewBag.Airports)
+                {
+                    <option value="@airport.AirportID">@airport.AirportName (@airport.CountryName, @airport.CityName)</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="TimeTableID" class="control-label"></label>
+            <input asp-for="TimeTableID" type="hidden" id="airportfromid" />
+            <select asp-for="TimeTableID" class="form-control select2 select2-hidden-accessible">
+                @foreach (var timeTable in ViewBag.TimeTables)
+                {
+                    <option value="@timeTable.TimeTableID">Flight time @timeTable.FlightTime
+                        M @timeTable.MondayTimeTable;
+                        Tue @timeTable.TuesdayTimeTable;
+                        W @timeTable.WednesdayTimeTable;
+                        Thu @timeTable.ThursdayTimeTable;
+                        F @timeTable.FridayTimeTable;
+                        Sun @timeTable.SaturdayTimeTable;
+                        Sat @timeTable.SundayTimeTable
+                    </option>
+                }
+            </select>
+        </div>
     </div>
 
     <div class="box-footer">

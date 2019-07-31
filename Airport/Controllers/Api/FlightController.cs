@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Airport.Data;
 using Airport.Models;
-using Microsoft.AspNetCore.Authorization;
+using Airport.Models.Новая_папка;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -25,13 +25,32 @@ namespace Airport.Controllers.Api
         [HttpGet]
         public IActionResult GetFlight()
         {
-            return Json(new { data = _context.Flights.ToList() });
+            List<FlightDataTableModel> flights = new List<FlightDataTableModel>();
+
+            foreach(Flight f in _context.Flights.ToList())
+            {
+                FlightDataTableModel fl = new FlightDataTableModel();
+                fl.FligthID = f.FligthID;
+                fl.DepartureDate = f.DepartureDate;
+                fl.DestinationDate = f.DestinationDate;
+                fl.AirplaneType = _context.Airplanes.FirstOrDefault(x => x.AirplaneID.Equals(f.AirplaneID)).AirplaneType;
+
+                Airportt airportFrom = _context.Airportts.FirstOrDefault(x => x.AirportID.Equals(f.AirportFromAirportID));
+                Airportt airportTo = _context.Airportts.FirstOrDefault(x => x.AirportID.Equals(f.AirportToAirportID));
+                fl.AirportFrom = airportFrom.AirportName + "( " + airportFrom.CountryName + ", " + airportFrom.CityName + ")" ;
+                fl.AirportTo = airportTo.AirportName + "( " + airportTo.CountryName + ", " + airportTo.CityName + ")";
+                fl.FlightTime = _context.TimeTables.FirstOrDefault(x => x.TimeTableID.Equals(f.TimeTableID)).FlightTime;
+                fl.PriceFlight = f.PriceFlight;
+
+                flights.Add(fl);
+            }
+            return Json(new { data = flights });
         }
 
 
-        // POST: api/User
+        // POST: api/Flight
         [HttpPost]
-        public async Task<IActionResult> PostUser([FromBody] Flight flight)
+        public async Task<IActionResult> PostFlight([FromBody] Flight flight)
         {
             if (!ModelState.IsValid)
             {
@@ -40,7 +59,8 @@ namespace Airport.Controllers.Api
 
             try
             {
-
+                Airportt airport = _context.Airportts.SingleOrDefault(x => x.AirportID == flight.AirportToAirportID);
+                flight.AirportToAirportID = airport.AirportID;
                 if (flight.FligthID == Guid.Empty)
                 {
                     flight.FligthID = Guid.NewGuid();

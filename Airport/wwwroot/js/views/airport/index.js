@@ -1,22 +1,23 @@
 ﻿var popup, dataTable;
-var entity = 'Ticket';
-var apiurl = '/api/' + entity + '/Customer';
+var entity = 'Airport';
+var apiurl = '/api/' + entity;
 
 $(document).ready(function () {
-    var customerId = $('#customerId').val();
     dataTable = $('#grid').DataTable({
         "ajax": {
-            "url": apiurl + '/' + customerId,
+            "url": apiurl,
             "type": 'GET',
             "datatype": 'json'
         },
         "columns": [
-            { "data": "ticketName" },
+            { "data": 'airportName' },
+            { "data": 'countryName' },
+            { "data": 'cityName' },
             {
-                "data": "ticketId",
+                "data":'airportID',
                 "render": function (data) {
-                    var btnEdit = "<a class='btn btn-default btn-xs' onclick=ShowPopup('/" + entity + "/AddEditCustomerTicket/" + data + "')><i class='fa fa-pencil'></i></a>";
-                    var btnDelete = "<a class='btn btn-danger btn-xs' style='margin-left:5px' onclick=Delete('" + data + "')><i class='fa fa-trash'></i></a>";
+                    var btnEdit = "<a class='btn btn-default btn-xs' onclick=ShowPopup('/" + entity + "/AddEdit/" + data + "')><i class='fa fa-pencil'></i></a>";
+                    var btnDelete = "<a class='btn btn-danger btn-xs' style='margin-left:2px' onclick=Delete('" + data + "')><i class='fa fa-trash'></i></a>";
                     return btnEdit + btnDelete;
                 }
             }
@@ -30,11 +31,11 @@ $(document).ready(function () {
 
 function ShowPopup(url) {
     var modalId = 'modalDefault';
-    var modalPlaceholder = $('#' + modalId + ' .modal-dialog .modal-content');
+    var modalPlaceholder = $('#'+modalId+' .modal-dialog .modal-content');
     $.get(url)
         .done(function (response) {
             modalPlaceholder.html(response);
-            popup = $('#' + modalId + '').modal({
+            popup = $('#'+modalId+'').modal({
                 keyboard: false,
                 backdrop: 'static'
             });
@@ -70,7 +71,7 @@ function SubmitAddEdit(form) {
 function Delete(id) {
     swal({
         title: "Are you sure want to Delete?",
-        text: "You will not be able to restore the file!",
+        text: "You will not be able to restore the data!",
         type: "warning",
         showCancelButton: true,
         confirmButtonColor: "#dd4b39",
@@ -93,7 +94,5 @@ function Delete(id) {
 
 
 }
-
-
 
 

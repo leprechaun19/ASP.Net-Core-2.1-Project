@@ -47,6 +47,10 @@
               "version": "[2.1.1, )",
               "autoReferenced": true
             },
+            "Microsoft.AspNetCore.Mvc.Formatters.Xml": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
             "Microsoft.AspNetCore.Razor.Design": {
               "suppressParent": "All",
               "target": "Package",
@@ -56,6 +60,10 @@
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
+            },
+            "SoapCore": {
+              "target": "Package",
+              "version": "[0.9.9, )"
             }
           },
           "imports": [

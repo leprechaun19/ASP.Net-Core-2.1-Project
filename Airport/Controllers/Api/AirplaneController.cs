@@ -25,13 +25,16 @@ namespace Airport.Controllers.Api
         [HttpGet]
         public IActionResult GetAirplane()
         {
-            return Json(new { data = _context.Airplanes.ToList() });
+            foreach(Airplane a in _context.Airplanes.ToList()) {
+                a.Airline = _context.Airlines.FirstOrDefault(x => x.AirlineID.Equals(a.AirlineID));
+            }
+            return Json(new { data =  _context.Airplanes.ToList()});
         }
 
 
         // POST: api/Airplane
         [HttpPost]
-        public async Task<IActionResult> PostAirplane([FromBody] Models.AirplaneViewModels.AddAirplaneViewModel air)
+        public async Task<IActionResult> PostAirplane([FromBody] Airplane air)
         {
             if (!ModelState.IsValid)
             {
