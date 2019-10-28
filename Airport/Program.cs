@@ -13,10 +13,10 @@ namespace Airport
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-            .UseKestrel()
+            //.UseKestrel()
             .UseContentRoot(Directory.GetCurrentDirectory())
-            .UseIISIntegration()
-            .UseUrls("http://*:5000")
+            //.UseIISIntegration()
+            //.UseUrls("http://*:5000")
             .UseStartup<Startup>();
     }
 }
